@@ -3,3 +3,4 @@ pandas==1.4.2
 pickleshare==0.7.5
 streamlit==1.8.1
 matplotlib
+annotated_text
