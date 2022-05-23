@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from annotated_text import annotated_text
+#from annotated_text import annotated_text
 import matplotlib.pyplot as plt
 from PIL import Image
 
