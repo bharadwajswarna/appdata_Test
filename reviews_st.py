@@ -59,20 +59,24 @@ with test:
     st.header("Themes")
     
     if (app_choice == "HDFC PayZapp") & (theme_choice == 'Negative Themes'):
-
+        
+        st.title("Negative Themes")
         image = Image.open('hdfc_neg.png')
         st.image(image, caption='HDFC PayZapp Negative Reviews')
 
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'Positive Themes'):
 
+        st.title("Positive Themes")
         image = Image.open('hdfc_pos.png')
         st.image(image, caption='HDFC PayZapp Positive Reviews')
     
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'All Themes'):
-
+        
+        st.title("Negative Themes")
         image = Image.open('hdfc_neg.png')
         st.image(image, caption='HDFC PayZapp Negative Reviews')
-
+        
+        st.title("Positive Themes")
         image = Image.open('hdfc_pos.png')
         st.image(image, caption='HDFC PayZapp Positive Reviews')
     
