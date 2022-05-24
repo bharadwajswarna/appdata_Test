@@ -72,16 +72,19 @@ with test:
     
     if (app_choice == "HDFC PayZapp") & (theme_choice == 'Negative Themes'):
 
+        st.title("Negative Themes")
         image = Image.open('hdfc_neg.png')
         st.image(image, caption='HDFC PayZapp Negative Reviews')
 
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'Positive Themes'):
 
+        st.title("Positive Themes")
         image = Image.open('hdfc_pos.png')
         st.image(image, caption='HDFC PayZapp Positive Reviews')
     
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'All Themes'):
 
+        st.title("All Themes")
         image = Image.open('hdfc_all.png')
         st.image(image, caption='HDFC PayZapp Reviews')
 
@@ -90,16 +93,19 @@ with test:
     
     elif (app_choice == "Zest Money") & (theme_choice == 'Negative Themes'):
 
+        st.title("Negative Themes")
         image = Image.open('zest_neg.png')
         st.image(image, caption='Zest Money Negative Reviews')
 
     elif (app_choice == "Zest Money") & (theme_choice == 'Positive Themes'):
 
+        st.title("Positive Themes")
         image = Image.open('zest_pos.png')
         st.image(image, caption='Zest Money Positive Reviews')
     
     elif (app_choice == "Zest Money") & (theme_choice == 'All Themes'):
 
+        st.title("All Themes")
         image = Image.open('zest_all.png')
         st.image(image, caption='Zest Money Reviews')
 
@@ -108,16 +114,19 @@ with test:
 
     elif (app_choice == "NPCI Bhim") & (theme_choice == 'Negative Themes'):
 
+        st.title("Negative Themes")
         image = Image.open('bhim_neg.png')
         st.image(image, caption='NPCI Bhim Negative Reviews')
 
     elif (app_choice == "NPCI Bhim") & (theme_choice == 'Positive Themes'):
 
+        st.title("Positive Themes")
         image = Image.open('bhim_pos.png')
         st.image(image, caption='NPCI Bhim Positive Reviews')
     
     elif (app_choice == "NPCI Bhim") & (theme_choice == 'All Themes'):
 
+        st.title("All Themes")
         image = Image.open('bhim_all.png')
         st.image(image, caption='NPCI Bhim Reviews')
     
