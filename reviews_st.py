@@ -32,10 +32,20 @@ with add_selectbox:
 
 with header:
     st.title(app_choice)
+
+    if app_choice == "HDFC PayZapp":
+        v = {0:"3.9",1:"434 K",2: "10 M+"}
+    
+    if app_choice == "NPCI Bhim":
+        v = {0:"4.6",1:"1.21 M",2:"50 M+"}
+    
+    if app_choice == "Zest Money":
+        v = {0:"4.4",1:"167 K",2:"5 M+"}
+
     col1, col2, col3 = st.columns(3)
-    col1.metric(label="Rating out of 5", value="4.2")
-    col2.metric(label="No of Ratings", value="465,025")
-    col3.metric("No of Reviews Analyzed", value = "125,000")
+    col1.metric(label="Rating out of 5", value=v[0])
+    col2.metric(label="No of Ratings", value=v[1])
+    col3.metric("Downloads", value = v[2])
     
 
 #with graphs:
@@ -56,29 +66,60 @@ with header:
 
 with test:
 
-    st.title("Themes")
+    st.header("Themes")
+
+# hdfc
     
     if (app_choice == "HDFC PayZapp") & (theme_choice == 'Negative Themes'):
-        
-        st.header("Negative Themes")
+
         image = Image.open('hdfc_neg.png')
         st.image(image, caption='HDFC PayZapp Negative Reviews')
 
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'Positive Themes'):
 
-        st.header("Positive Themes")
         image = Image.open('hdfc_pos.png')
         st.image(image, caption='HDFC PayZapp Positive Reviews')
     
     elif (app_choice == "HDFC PayZapp") & (theme_choice == 'All Themes'):
-        
-        st.header("Negative Themes")
-        image = Image.open('hdfc_neg.png')
-        st.image(image, caption='HDFC PayZapp Negative Reviews')
-        
-        st.header("Positive Themes")
-        image = Image.open('hdfc_pos.png')
-        st.image(image, caption='HDFC PayZapp Positive Reviews')
+
+        image = Image.open('hdfc_all.png')
+        st.image(image, caption='HDFC PayZapp Reviews')
+
+
+# zest
+    
+    elif (app_choice == "Zest Money") & (theme_choice == 'Negative Themes'):
+
+        image = Image.open('zest_neg.png')
+        st.image(image, caption='Zest Money Negative Reviews')
+
+    elif (app_choice == "Zest Money") & (theme_choice == 'Positive Themes'):
+
+        image = Image.open('zest_pos.png')
+        st.image(image, caption='Zest Money Positive Reviews')
+    
+    elif (app_choice == "Zest Money") & (theme_choice == 'All Themes'):
+
+        image = Image.open('zest_all.png')
+        st.image(image, caption='Zest Money Reviews')
+
+
+# bhim upi
+
+    elif (app_choice == "NPCI Bhim") & (theme_choice == 'Negative Themes'):
+
+        image = Image.open('bhim_neg.png')
+        st.image(image, caption='NPCI Bhim Negative Reviews')
+
+    elif (app_choice == "NPCI Bhim") & (theme_choice == 'Positive Themes'):
+
+        image = Image.open('bhim_pos.png')
+        st.image(image, caption='NPCI Bhim Positive Reviews')
+    
+    elif (app_choice == "NPCI Bhim") & (theme_choice == 'All Themes'):
+
+        image = Image.open('bhim_all.png')
+        st.image(image, caption='NPCI Bhim Reviews')
     
 
     else:
