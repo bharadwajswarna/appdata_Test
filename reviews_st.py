@@ -60,7 +60,7 @@ with header:
         v = {0:"4.4",1:"179 K",2:"5 M+"}
 
     if app_choice == "Khata Book":
-    v = {0:"4.6",1:"461 K",2:"50 M+"}
+        v = {0:"4.6",1:"461 K",2:"50 M+"}
     
     if app_choice == "Vyapaar":
         v = {0:"4.6",1:"84.6 K",2:"5 M+"}
