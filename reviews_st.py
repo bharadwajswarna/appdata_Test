@@ -283,13 +283,13 @@ with test:
         image = Image.open('vyapaar_neg.png')
         st.image(image, caption='Vyapaar Negative Reviews')
 
-    elif (app_choice == "KhataBook") & (theme_choice == 'Positive Themes'):
+    elif (app_choice == "Vyapaar") & (theme_choice == 'Positive Themes'):
 
         st.header("Positive Themes")
         image = Image.open('vyapaar_pos.png')
         st.image(image, caption='Vyapaar Positive Reviews')
     
-    elif (app_choice == "KhataBook") & (theme_choice == 'All Themes'):
+    elif (app_choice == "Vyapaar") & (theme_choice == 'All Themes'):
 
         st.header("All Themes")
         image = Image.open('vyapaar_all.png')
