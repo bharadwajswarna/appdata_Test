@@ -18,7 +18,8 @@ with add_selectbox:
     st.title("Aidetic App Analyzer")
     st.write('**Choose an App**')
     app_choice = st.selectbox(label = "The reviews of the following apps from play store have been analyzed",options = ("HDFC PayZapp", "NPCI Bhim", "Zest Money",
-                                        "PhonePe Business","GooglePay Business","Kredit Bee", "Lending Kart", "CASHe"),help = "choose the app you want")
+                                        "PhonePe Business","GooglePay Business","Kredit Bee", "Lending Kart", "CASHe", "Khata Book", "Vyapaar"),
+                                        help = "choose the app you want")
     st.write('**Choose Themes**')
     theme_choice = st.radio(label = "Positive Themes represents ideas/themes people like about the app",options = ['Positive Themes','Negative Themes','All Themes'])
     #st.write("**Compare Reviews**")
@@ -57,6 +58,12 @@ with header:
     
     if app_choice == "CASHe":
         v = {0:"4.4",1:"179 K",2:"5 M+"}
+
+    if app_choice == "Khata Book":
+    v = {0:"4.6",1:"461 K",2:"50 M+"}
+    
+    if app_choice == "Vyapaar":
+        v = {0:"4.6",1:"84.6 K",2:"5 M+"}
     
     
 
