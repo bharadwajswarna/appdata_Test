@@ -257,19 +257,19 @@ with test:
 
 # khatabook
 
-    elif (app_choice == "KhataBook") & (theme_choice == 'Negative Themes'):
+    elif (app_choice == "Khata Book") & (theme_choice == 'Negative Themes'):
 
         st.header("Negative Themes")
         image = Image.open('khatabook_neg.png')
         st.image(image, caption='KhataBook Negative Reviews')
 
-    elif (app_choice == "KhataBook") & (theme_choice == 'Positive Themes'):
+    elif (app_choice == "Khata Book") & (theme_choice == 'Positive Themes'):
 
         st.header("Positive Themes")
         image = Image.open('khatabook_pos.png')
         st.image(image, caption='KhataBook Positive Reviews')
     
-    elif (app_choice == "KhataBook") & (theme_choice == 'All Themes'):
+    elif (app_choice == "Khata Book") & (theme_choice == 'All Themes'):
 
         st.header("All Themes")
         image = Image.open('khatabook_all.png')
