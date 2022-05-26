@@ -18,7 +18,7 @@ with add_selectbox:
     st.title("Aidetic App Analyzer")
     st.write('**Choose an App**')
     app_choice = st.selectbox(label = "The reviews of the following apps from play store have been analyzed",options = ("HDFC PayZapp", "NPCI Bhim", "Zest Money",
-                                        "PhonePe Business","GooglePay Business","Kredit Bee"),help = "choose the app you want")
+                                        "PhonePe Business","GooglePay Business","Kredit Bee", "Lending Kart", "CASHe"),help = "choose the app you want")
     st.write('**Choose Themes**')
     theme_choice = st.radio(label = "Positive Themes represents ideas/themes people like about the app",options = ['Positive Themes','Negative Themes','All Themes'])
     #st.write("**Compare Reviews**")
@@ -51,6 +51,13 @@ with header:
     
     if app_choice == "Kredit Bee":
         v = {0:"4.4",1:"780 K",2:"10 M+"}
+
+    if app_choice == "Lending Kart":
+        v = {0:"2.9",1:"18.2 K",2:"1 M+"}
+    
+    if app_choice == "CASHe":
+        v = {0:"4.4",1:"179 K",2:"5 M+"}
+    
     
 
     col1, col2, col3 = st.columns(3)
@@ -201,6 +208,85 @@ with test:
         image = Image.open('kreditbee_all.png')
         st.image(image, caption='Kredit Bee Reviews')
 
+# cashe
+
+    elif (app_choice == "CASHe") & (theme_choice == 'Negative Themes'):
+
+        st.header("Negative Themes")
+        image = Image.open('cashe_neg.png')
+        st.image(image, caption='CASHe Negative Reviews')
+
+    elif (app_choice == "CASHe") & (theme_choice == 'Positive Themes'):
+
+        st.header("Positive Themes")
+        image = Image.open('cashe_pos.png')
+        st.image(image, caption='CASHe Positive Reviews')
+    
+    elif (app_choice == "CASHe") & (theme_choice == 'All Themes'):
+
+        st.header("All Themes")
+        image = Image.open('cashe_all.png')
+        st.image(image, caption='CASHe Reviews')
+
+# lending kart
+
+    elif (app_choice == "Lending Kart") & (theme_choice == 'Negative Themes'):
+
+        st.header("Negative Themes")
+        image = Image.open('lendingkart.png')
+        st.image(image, caption='Lending Kart Negative Reviews')
+
+    elif (app_choice == "Lending Kart") & (theme_choice == 'Positive Themes'):
+
+        st.header("Positive Themes")
+        image = Image.open('lendingkart_pos.png')
+        st.image(image, caption='Lending Kart Positive Reviews')
+    
+    elif (app_choice == "Lending Kart") & (theme_choice == 'All Themes'):
+
+        st.header("All Themes")
+        image = Image.open('lendingkart_all.png')
+        st.image(image, caption='Lending Kart Reviews')
+
+# khatabook
+
+    elif (app_choice == "KhataBook") & (theme_choice == 'Negative Themes'):
+
+        st.header("Negative Themes")
+        image = Image.open('khatabook_neg.png')
+        st.image(image, caption='KhataBook Negative Reviews')
+
+    elif (app_choice == "KhataBook") & (theme_choice == 'Positive Themes'):
+
+        st.header("Positive Themes")
+        image = Image.open('khatabook_pos.png')
+        st.image(image, caption='KhataBook Positive Reviews')
+    
+    elif (app_choice == "KhataBook") & (theme_choice == 'All Themes'):
+
+        st.header("All Themes")
+        image = Image.open('khatabook_all.png')
+        st.image(image, caption='KhataBook Reviews')
+
+# vyapaar
+
+    elif (app_choice == "Vyapaar") & (theme_choice == 'Negative Themes'):
+
+        st.header("Negative Themes")
+        image = Image.open('vyapaar_neg.png')
+        st.image(image, caption='Vyapaar Negative Reviews')
+
+    elif (app_choice == "KhataBook") & (theme_choice == 'Positive Themes'):
+
+        st.header("Positive Themes")
+        image = Image.open('vyapaar_pos.png')
+        st.image(image, caption='Vyapaar Positive Reviews')
+    
+    elif (app_choice == "KhataBook") & (theme_choice == 'All Themes'):
+
+        st.header("All Themes")
+        image = Image.open('vyapaar_all.png')
+        st.image(image, caption='Vyapaar Reviews')
 
     else:
 
