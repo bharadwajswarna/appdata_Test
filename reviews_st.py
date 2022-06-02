@@ -4,6 +4,13 @@ from annotated_text import annotated_text
 import matplotlib.pyplot as plt
 from PIL import Image
 
+def read_pkl(filename):
+    import pickle
+    file = open(filename,'rb')
+    df = pickle.load(file)
+    file.close()
+    return df
+
 img = Image.open('logo.png')
 st.set_page_config(page_title="App Reviews Analyzer", page_icon=img)
 
@@ -151,7 +158,7 @@ with test:
     
     elif (app_choice == "NPCI Bhim") & (theme_choice == 'All Themes'):
 
-        st.header("All Themes")
+        st.header("All Themes.")
         image = Image.open('bhim_all.png')
         st.image(image, caption='NPCI Bhim Reviews')
 
@@ -159,15 +166,56 @@ with test:
 
     elif (app_choice == "GooglePay Business") & (theme_choice == 'Negative Themes'):
 
-        st.header("Negative Themes")
+        st.header("Negative Themes old")
         image = Image.open('googlepaybusiness_neg.png')
         st.image(image, caption='GooglePay Business Negative Reviews')
+
+        st.header("Negative Themes New")
+        image = Image.open('googlepaybusiness_neg2.png')
+        st.image(image, caption='Google Business Negative Reviews')
+
+        st.header("Relevant Negative Comments")
+
+        cd_minus = read_pkl("cd_googlepay_minus")
+        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_minus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_minus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
+
 
     elif (app_choice == "GooglePay Business") & (theme_choice == 'Positive Themes'):
 
         st.header("Positive Themes")
         image = Image.open('googlepaybusiness_pos.png')
         st.image(image, caption='GooglePay Business Positive Reviews')
+
+        st.header("Positive Themes New")
+        image = Image.open('googlepaybusiness_pos2.png')
+        st.image(image, caption='Google Business Positive Reviews')
+
+        st.header("Relevant Positive Comments")
+
+        cd_plus = read_pkl("cd_googlepay_plus")
+        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_plus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_plus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
     
     elif (app_choice == "GooglePay Business") & (theme_choice == 'All Themes'):
 
@@ -175,25 +223,76 @@ with test:
         image = Image.open('googlepaybusiness_all.png')
         st.image(image, caption='GooglePay Business Reviews')
 
+
 # phonepe business
 
     elif (app_choice == "PhonePe Business") & (theme_choice == 'Negative Themes'):
 
-        st.header("Negative Themes")
+
+        st.header("Negative Themes Old")
         image = Image.open('phonepebusiness_neg.png')
         st.image(image, caption='PhonePe Business Negative Reviews')
 
+        st.header("Negative Themes New")
+        image = Image.open('phonepebusiness_neg2.png')
+        st.image(image, caption='PhonePe Business Negative Reviews')
+
+        st.header("Relevant Negative Comments")
+
+        cd_phonepe_minus = read_pkl("cd_phonepe_minus")
+        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_phonepe_minus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_phonepe_minus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
+
+
+        #st.write(annotated_text)
+
+
     elif (app_choice == "PhonePe Business") & (theme_choice == 'Positive Themes'):
 
-        st.header("Positive Themes")
+        st.header("Positive Themes Old")
         image = Image.open('phonepebusiness_pos.png')
         st.image(image, caption='PhonePe Business Positive Reviews')
+
+        st.header("Positive Themes New")
+        image = Image.open('phonepebusiness_pos2.png')
+        st.image(image, caption='PhonePe Business Positive Reviews')
+
+        st.header("Relevant Positive Comments")
+
+        cd_phonepe_plus = read_pkl("cd_phonepe_plus")
+        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_phonepe_plus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_phonepe_plus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
     
     elif (app_choice == "PhonePe Business") & (theme_choice == 'All Themes'):
 
         st.header("All Themes")
         image = Image.open('phonepebusiness_all.png')
         st.image(image, caption='PhonePe Business Reviews')
+    
+
+
+
+
 
 # kredit bee
 
@@ -283,13 +382,13 @@ with test:
         image = Image.open('vyapaar_neg.png')
         st.image(image, caption='Vyapaar Negative Reviews')
 
-    elif (app_choice == "Vyapaar") & (theme_choice == 'Positive Themes'):
+    elif (app_choice == "KhataBook") & (theme_choice == 'Positive Themes'):
 
         st.header("Positive Themes")
         image = Image.open('vyapaar_pos.png')
         st.image(image, caption='Vyapaar Positive Reviews')
     
-    elif (app_choice == "Vyapaar") & (theme_choice == 'All Themes'):
+    elif (app_choice == "KhataBook") & (theme_choice == 'All Themes'):
 
         st.header("All Themes")
         image = Image.open('vyapaar_all.png')
