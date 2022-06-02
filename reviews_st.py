@@ -177,7 +177,7 @@ with test:
         st.header("Relevant Negative Comments")
 
         cd_minus = read_pkl("cd_googlepay_minus")
-        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_minus]))
+        option_comment = st.selectbox('Choose a theme to view the relevant comments', ([*cd_minus]))
         st.write('You selected:', option_comment)
 
         import re
@@ -270,7 +270,7 @@ with test:
         st.header("Relevant Positive Comments")
 
         cd_phonepe_plus = read_pkl("cd_phonepe_plus")
-        option_comment = st.selectbox('How would you like to be contacted?', ([*cd_phonepe_plus]))
+        option_comment = st.selectbox('Choose a theme to view the relevant comments', ([*cd_phonepe_plus]))
         st.write('You selected:', option_comment)
 
         import re
