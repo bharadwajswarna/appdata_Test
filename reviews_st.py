@@ -25,7 +25,7 @@ with add_selectbox:
     st.title("Aidetic App Analyzer")
     st.write('**Choose an App**')
     app_choice = st.selectbox(label = "The reviews of the following apps from play store have been analyzed",options = ("HDFC PayZapp", "NPCI Bhim", "Zest Money",
-                                        "PhonePe Business","GooglePay Business","Kredit Bee", "Lending Kart", "CASHe", "Khata Book", "Vyapaar"),
+                                        "PhonePe Business","GooglePay Business","Kredit Bee", "Lending Kart", "CASHe", "Khata Book", "Vyapaar", "Slice"),
                                         help = "choose the app you want")
     st.write('**Choose Themes**')
     theme_choice = st.radio(label = "Positive Themes represents ideas/themes people like about the app",options = ['Positive Themes','Negative Themes','All Themes'])
@@ -70,6 +70,9 @@ with header:
         v = {0:"4.6",1:"461 K",2:"50 M+"}
     
     if app_choice == "Vyapaar":
+        v = {0:"4.6",1:"84.6 K",2:"5 M+"}
+    
+    if app_choice == "Slice":
         v = {0:"4.6",1:"84.6 K",2:"5 M+"}
     
     
@@ -654,6 +657,58 @@ with test:
         st.header("All Themes")
         image = Image.open('vyapaar_all.png')
         st.image(image, caption='Vyapaar Reviews')
+    
+    #slice
+
+    elif (app_choice == "Slice") & (theme_choice == 'Negative Themes'):
+
+        st.header("Negative Themes")
+        image = Image.open('slice_neg2.png')
+        st.image(image, caption='Slice Negative Reviews')
+
+        st.header("Relevant Negative Comments")
+
+        cd_minus = read_pkl("cd_slice_minus")
+        option_comment = st.selectbox('Please Select', ([*cd_minus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_minus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
+
+    elif (app_choice == "Slice") & (theme_choice == 'Positive Themes'):
+
+        st.header("Positive Themes")
+        image = Image.open('slice_pos2.png')
+        st.image(image, caption='Slice Positive Reviews')
+
+        st.header("Relevant Positive Comments")
+
+        cd_minus = read_pkl("cd_slice_plus")
+        option_comment = st.selectbox('Please Choose', ([*cd_minus]))
+        st.write('You selected:', option_comment)
+
+        import re
+        reviews_list = cd_minus[option_comment] #['very nice and easy use', 'verry good apps and easy used apps', 'best app from all other upi app.... convient and easy use']
+        r = option_comment #"and easy use"
+        
+        #annotated_text("very nice",("and easy use","feature","#faa"))
+        for i in range(len(reviews_list)):
+            index = re.search(r,reviews_list[i]).span()
+            annotated_text(reviews_list[i][:index[0]-1], (reviews_list[i][index[0]:index[1]],'feature','#faa'), reviews_list[i][index[1]:])
+            st.write(" ")
+    
+    elif (app_choice == "Slice") & (theme_choice == 'All Themes'):
+
+        st.header("All Themes")
+        image = Image.open('slice_all.png')
+        st.image(image, caption='Slice Reviews')
 
     else:
 
